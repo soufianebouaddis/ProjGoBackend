@@ -44,7 +44,6 @@ public class TaskImpl implements TaskInterface {
         return taskRepository.findById(id).map((newTask) -> {
             Task.builder()
                     .name(taskDto.getName())
-                    .status(taskDto.getStatus())
                     .description(taskDto.getDescription())
                     .date(taskDto.getDate())
                     .startTime(taskDto.getStartTime())

@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.projgobackend.projgo.dto.TaskDto;
 import com.projgobackend.projgo.entity.Task;
 import com.projgobackend.projgo.entity.enums.TaskStatus;
+import com.projgobackend.projgo.mapper.TaskMapper;
 import com.projgobackend.projgo.service.TaskImpl;
 
 import jakarta.validation.Valid;
@@ -26,15 +27,18 @@ import org.springframework.web.bind.annotation.PathVariable;
 @CrossOrigin
 public class TaskController {
     private TaskImpl taskService;
+    private TaskMapper taskMapper;
 
     public TaskController(TaskImpl taskService) {
         this.taskService = taskService;
     }
 
     @PostMapping("addtask")
-    public ResponseEntity<Task> saveTask(@RequestBody @Valid TaskDto task) {
+    public ResponseEntity<Task> saveTask(@RequestBody @Valid TaskDto taskDto) {
+        Task task = taskMapper.mapFromEntity(taskDto);
         task.setStatus(TaskStatus.CREATED);
-        return ResponseEntity.ok().body(taskService.saveTask(task));
+        taskDto = taskMapper.mapToEntity(task);
+        return ResponseEntity.ok().body(taskService.saveTask(taskDto));
     }
 
     @GetMapping("{id}")

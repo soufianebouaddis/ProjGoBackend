@@ -17,9 +17,6 @@ public class TaskDto {
     @NotNull(message = "TaskCategory cannot be null")
     @Enumerated(EnumType.STRING)
     private TaskCategory taskCategory;
-    @NotNull(message = "TaskStatus cannot be null")
-    @Enumerated(EnumType.STRING)
-    private TaskStatus status;
     @NotNull(message = "Date cannot be null")
     private LocalDate date;
     @NotNull(message = "startTime cannot be null")
