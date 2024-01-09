@@ -29,8 +29,9 @@ public class TaskController {
     private TaskImpl taskService;
     private TaskMapper taskMapper;
 
-    public TaskController(TaskImpl taskService) {
+    public TaskController(TaskImpl taskService, TaskMapper taskMapper) {
         this.taskService = taskService;
+        this.taskMapper = taskMapper;
     }
 
     @PostMapping("addtask")

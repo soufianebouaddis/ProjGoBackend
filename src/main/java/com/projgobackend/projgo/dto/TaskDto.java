@@ -3,7 +3,6 @@ package com.projgobackend.projgo.dto;
 import java.time.LocalDate;
 
 import com.projgobackend.projgo.entity.enums.TaskCategory;
-import com.projgobackend.projgo.entity.enums.TaskStatus;
 
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;

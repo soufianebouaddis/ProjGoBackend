@@ -1,9 +1,6 @@
 package com.projgobackend.projgo.entity;
 
-import java.sql.Time;
 import java.time.*;
-import java.util.TimeZone;
-
 import com.projgobackend.projgo.entity.enums.TaskCategory;
 import com.projgobackend.projgo.entity.enums.TaskStatus;
 
