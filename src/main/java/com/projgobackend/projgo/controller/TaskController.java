@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.projgobackend.projgo.dto.TaskDto;
 import com.projgobackend.projgo.entity.Task;
+import com.projgobackend.projgo.entity.enums.TaskStatus;
 import com.projgobackend.projgo.service.TaskImpl;
 
 import jakarta.validation.Valid;
@@ -32,6 +33,7 @@ public class TaskController {
 
     @PostMapping("addtask")
     public ResponseEntity<Task> saveTask(@RequestBody @Valid TaskDto task) {
+        task.setStatus(TaskStatus.CREATED);
         return ResponseEntity.ok().body(taskService.saveTask(task));
     }
 
