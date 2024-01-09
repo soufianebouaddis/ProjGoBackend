@@ -1,6 +1,8 @@
 package com.projgobackend.projgo.entity;
 
+import java.sql.Time;
 import java.time.*;
+import java.util.TimeZone;
 
 import com.projgobackend.projgo.entity.enums.TaskCategory;
 import com.projgobackend.projgo.entity.enums.TaskStatus;
@@ -33,7 +35,7 @@ public class Task {
     @Enumerated(EnumType.STRING)
     private TaskStatus status;
     private LocalDate date;
-    private Instant startTime;
-    private Instant endTime;
+    private String startTime;
+    private String endTime;
     private String description;
 }
